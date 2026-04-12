@@ -29,6 +29,6 @@ Para correr el proceso ETL, ejecuta los scripts en el siguiente orden:
 *Nota: Los registros de cada paso (logs) se guardarán automáticamente en la carpeta `logs/`.*
 
 ## 👥 Integrantes del Grupo y Responsabilidades
-- **[Tu Nombre]:** Arquitectura del repositorio, conexión a MongoDB y módulo de Extracción.
+- **Nelson Livanier Salgado Tejada:** Arquitectura del repositorio, conexión a MongoDB y módulo de Extracción.
 - **[Nombre Compañero 1]:** Análisis Exploratorio de Datos (EDA) y redacción del Informe Final.
 - **[Nombre Compañero 2]:** Módulo de Transformación, limpieza de datos y Carga.
