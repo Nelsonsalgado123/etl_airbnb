@@ -20,6 +20,7 @@ ETL_AIRBNB/
 ├── requirements.txt      # Dependencias del proyecto
 └── README.md             # Documentación principal
 
+```
 ## 🛠️ Instrucciones de Instalación y Ejecución
 
 ### 2. Configuración de la Base de Datos Local
