@@ -22,7 +22,7 @@ def iniciar_logger():
     # 4. Configurar las reglas del Secretario General
     logging.basicConfig(
         level=logging.INFO,
-        format='[%(asctime)s] [INFO] %(message)s',
+        format='[%(asctime)s] [%(levelname)s] %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S',
         handlers=[
             logging.FileHandler(nombre_archivo, encoding='utf-8'),

@@ -30,6 +30,11 @@ class Transformacion:
         Elimina registros duplicados y valores nulos para mejorar la calidad de los datos.
         """
         before = len(df)
+        # Convertir columnas tipo lista a string (clave para evitar error)
+        for col in df.columns:
+            df[col] = df[col].apply(
+                lambda x: str(x) if isinstance(x, (list, dict)) else x
+            )
 
         # Eliminación de duplicados
         df = df.drop_duplicates()
@@ -89,6 +94,16 @@ class Transformacion:
             logging.info("Precios categorizados")
         return df
 
+    def convertir_tipos_sqlite(self, df):
+        """
+        Convierte todos los valores complejos a string para compatibilidad con SQLite.
+        """
+        for col in df.columns:
+            df[col] = df[col].apply(
+                lambda x: str(x) if not isinstance(x, (int, float, str, bool, type(None))) else x
+            )
+        return df
+
     def transformar(self, data):
         """
         Aplica todas las transformaciones necesarias a cada colección.
@@ -114,6 +129,14 @@ class Transformacion:
         # =====================
         reviews = self.limpiar_nulos_duplicados(data["reviews"], "Reviews")
         reviews = self.transformar_fechas(reviews)
+        
+        # =====================
+        # AJUSTE FINAL PARA SQLITE
+        # =====================
+        listings = self.convertir_tipos_sqlite(listings)
+        calendar = self.convertir_tipos_sqlite(calendar)
+        reviews = self.convertir_tipos_sqlite(reviews)
+
 
         return {
             "listings": listings,

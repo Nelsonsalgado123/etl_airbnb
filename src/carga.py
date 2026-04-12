@@ -1,6 +1,7 @@
 import sqlite3
 import logging
 from datetime import datetime
+import re
 
 class Carga:
     """
@@ -50,6 +51,8 @@ class Carga:
             conn = sqlite3.connect(self.db_name)
 
             for nombre, df in data.items():
+                # limpiar antes de exportar
+                df = self.limpiar_texto_excel(df)
                 # Guardar cada DataFrame como una tabla en SQLite
                 # if_exists='replace' permite sobrescribir datos anteriores
                 df.to_sql(nombre, conn, if_exists='replace', index=False)
@@ -67,23 +70,40 @@ class Carga:
 
     def exportar_excel(self, data):
         """
-        Exporta los DataFrames transformados a archivos Excel (.xlsx).
+        Exporta los DataFrames a Excel.
 
-        Parámetros:
-        data (dict): Diccionario con DataFrames limpios
-
-        Proceso:
-        - Se genera un archivo Excel por cada dataset
-        - Se guardan en el directorio raíz del proyecto
+        - Si el dataset es muy grande (ej: reviews), exporta solo una muestra
+        - Limpia caracteres inválidos antes de exportar
         """
         try:
             for nombre, df in data.items():
-                # Exportar cada DataFrame a un archivo Excel
-                df.to_excel(f"{nombre}.xlsx", index=False)
 
-                logging.info(f"Archivo '{nombre}.xlsx' exportado correctamente")
+                # Limpiar texto para evitar errores en Excel
+                df = self.limpiar_texto_excel(df)
+
+                # CASO ESPECIAL: REVIEWS (muy grande)
+                if nombre == "reviews":
+                    df = df.head(50000)  # muestra de 50k registros
+                    df.to_excel(f"{nombre}.xlsx", index=False)
+
+                    logging.warning(
+                        "Se exportó solo una muestra de reviews (50k registros) por tamaño del dataset"
+                    )
+
+                #  OTROS DATASETS (normales)
+                else:
+                    df.to_excel(f"{nombre}.xlsx", index=False)
+                    logging.info(f"{nombre}.xlsx exportado correctamente")
 
         except Exception as e:
-            # Captura de errores durante la exportación
             logging.error(f"Error al exportar a Excel: {e}")
-            
+
+    def limpiar_texto_excel(self, df):
+        """
+        Limpia caracteres inválidos para Excel.
+        """
+        for col in df.select_dtypes(include=['object']).columns:
+            df[col] = df[col].astype(str).apply(
+                lambda x: re.sub(r'[^\x00-\x7F]+', '', x)  # elimina caracteres raros
+            )
+        return df
