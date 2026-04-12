@@ -23,7 +23,7 @@ ETL_AIRBNB/
 ```
 ## 🛠️ Instrucciones de Instalación y Ejecución
 
-### 2. Configuración de la Base de Datos Local
+### 2.1 Configuración de la Base de Datos Local
 Debido a restricciones de tamaño de alojamiento y buenas prácticas de versionado, los archivos CSV originales no se incluyen en este repositorio. Para ejecutar este proyecto localmente, es necesario replicar la base de datos siguiendo estos pasos:
 
 Directorio de Datos: Crea una carpeta llamada data/ en la raíz del proyecto y descarga los archivos listings.csv, reviews.csv y calendar.csv en su interior.
@@ -49,10 +49,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Ejecución del Pipeline ETL
-Con el entorno activado y MongoDB corriendo con los datos cargados, el proceso debe ejecutarse en el siguiente orden estricto para mantener la integridad de los datos:
-### 3. Ejecución del Pipeline ETL
-
+### 2.3. Ejecución del Pipeline ETL
 Con el entorno activado y MongoDB corriendo con los datos cargados, el proceso debe ejecutarse en el siguiente orden estricto para mantener la integridad de los datos:
 
 * **Fase 0: Análisis Exploratorio (Opcional)**
