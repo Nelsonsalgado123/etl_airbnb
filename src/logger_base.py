@@ -17,12 +17,13 @@ def iniciar_logger():
 
     # 3. Capturar el momento exacto para nombrar el archivo
     fecha_hora = datetime.now().strftime("%Y%m%d_%H%M")
-    nombre_archivo = os.path.join(carpeta_logs, f"log_{fecha_hora}.txt")
+    nombre_archivo = os.path.join(carpeta_logs, f"log_{fecha_hora}.log")
 
     # 4. Configurar las reglas del Secretario General
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - [%(levelname)s] - %(message)s',
+        format='[%(asctime)s] [INFO] %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
         handlers=[
             logging.FileHandler(nombre_archivo, encoding='utf-8'),
             logging.StreamHandler()
