@@ -1,0 +1,4 @@
+2026-04-12 13:00:57,274 - [INFO] - ✅ Conexión exitosa a la base de datos: 'airbnb_ba'
+2026-04-12 13:00:58,121 - [INFO] - 📦 Se extrajeron 27348 registros de la colección 'Listings'.
+2026-04-12 13:01:04,144 - [INFO] - 📦 Se extrajeron 1042702 registros de la colección 'Reviews'.
+2026-04-12 13:01:04,278 - [INFO] - 📦 Se extrajeron 5000 registros de la colección 'Calendar'.
