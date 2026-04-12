@@ -2,8 +2,6 @@
 
 Este proyecto automatiza el proceso de Extracción, Transformación y Carga (ETL) de datos correspondientes a los alojamientos de Airbnb en la ciudad de Buenos Aires. Utiliza Python para el procesamiento de datos y MongoDB como motor de almacenamiento inicial.
 
----
-
 ## 📂 1. Estructura del Proyecto
 
 El repositorio está organizado de la siguiente manera para separar la lógica, los datos y los registros:
