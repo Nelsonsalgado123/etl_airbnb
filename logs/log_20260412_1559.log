@@ -1,0 +1,81 @@
+[2026-04-12 15:59:02] [INFO] [GENERAL] INICIO ejecucion notebook
+[2026-04-12 15:59:02] [INFO] [INIT] Librerias cargadas
+[2026-04-12 15:59:02] [INFO] [INIT] CWD: C:\Users\USER\Desktop\trabajo\etl_airbnb\notebooks
+[2026-04-12 15:59:02] [INFO] [INIT] project_root: C:\Users\USER\Desktop\trabajo\etl_airbnb
+[2026-04-12 15:59:02] [INFO] [INIT] src_path agregado: C:\Users\USER\Desktop\trabajo\etl_airbnb\src
+[2026-04-12 15:59:02] [INFO] [INIT] log file: C:\Users\USER\Desktop\trabajo\etl_airbnb\logs\log_20260412_1559.log
+[2026-04-12 15:59:02] [INFO] [2.1] INICIO | Entendimiento general de datos
+[2026-04-12 15:59:02] [INFO] [2.1] Configurando conexion a MongoDB y carga de muestras
+[2026-04-12 15:59:02] [INFO] [2.1] Conexion OK a MongoDB: mongodb://localhost:27017/ | bd=trabajo2
+[2026-04-12 15:59:02] [INFO] [2.1] Colecciones en BD: ['calendar', 'listings', 'reviews']
+[2026-04-12 15:59:02] [INFO] [2.1] calendar: muestra=12,000 filas, columnas=8
+[2026-04-12 15:59:03] [INFO] [2.1] listings: muestra=12,000 filas, columnas=86
+[2026-04-12 15:59:03] [INFO] [2.1] reviews: muestra=12,000 filas, columnas=7
+[2026-04-12 15:59:03] [INFO] [2.1] Carga de muestras finalizada
+[2026-04-12 15:59:03] [INFO] [2.1] Analizando estructura de calendar
+[2026-04-12 15:59:03] [INFO] [2.1] Coleccion: calendar
+[2026-04-12 15:59:03] [INFO] [2.1] Registros (muestra): 12,000 | Columnas: 8
+[2026-04-12 15:59:03] [INFO] [2.1] head():
+[2026-04-12 15:59:03] [INFO] [2.1] info():
+[2026-04-12 15:59:03] [INFO] [2.1] Variables relevantes detectadas: 6
+[2026-04-12 15:59:03] [INFO] [2.1] Analizando estructura de listings
+[2026-04-12 15:59:03] [INFO] [2.1] Coleccion: listings
+[2026-04-12 15:59:03] [INFO] [2.1] Registros (muestra): 12,000 | Columnas: 86
+[2026-04-12 15:59:03] [INFO] [2.1] head():
+[2026-04-12 15:59:03] [INFO] [2.1] info():
+[2026-04-12 15:59:03] [INFO] [2.1] Variables relevantes detectadas: 9
+[2026-04-12 15:59:03] [INFO] [2.1] Analizando estructura de reviews
+[2026-04-12 15:59:03] [INFO] [2.1] Coleccion: reviews
+[2026-04-12 15:59:03] [INFO] [2.1] Registros (muestra): 12,000 | Columnas: 7
+[2026-04-12 15:59:03] [INFO] [2.1] head():
+[2026-04-12 15:59:03] [INFO] [2.1] info():
+[2026-04-12 15:59:03] [INFO] [2.1] Variables relevantes detectadas: 6
+[2026-04-12 15:59:03] [INFO] [2.1] FIN | duracion=0.91s | Entendimiento general de datos
+[2026-04-12 15:59:03] [INFO] [2.2] INICIO | Calidad de datos
+[2026-04-12 15:59:03] [INFO] [2.2] Preparando conversiones base para validaciones de calidad
+[2026-04-12 15:59:03] [INFO] [2.2] Conversiones base aplicadas para analisis de calidad
+[2026-04-12 15:59:03] [INFO] [2.2] Evaluando nulos por coleccion
+[2026-04-12 15:59:03] [INFO] [2.2] Nulos por columna - calendar
+[2026-04-12 15:59:03] [INFO] [2.2] Columnas con nulos: 1 de 9
+[2026-04-12 15:59:03] [INFO] [2.2] Nulos por columna - listings
+[2026-04-12 15:59:03] [INFO] [2.2] Columnas con nulos: 2 de 87
+[2026-04-12 15:59:03] [INFO] [2.2] Nulos por columna - reviews
+[2026-04-12 15:59:03] [INFO] [2.2] Columnas con nulos: 0 de 7
+[2026-04-12 15:59:03] [INFO] [2.2] Analizando duplicados y criterio de decision
+[2026-04-12 15:59:03] [INFO] [2.2] Duplicados - calendar
+[2026-04-12 15:59:03] [INFO] [2.2] Clave: ['listing_id', 'date']
+[2026-04-12 15:59:03] [INFO] [2.2] Duplicados: 0 / 12,000
+[2026-04-12 15:59:03] [INFO] [2.2] Decision: No eliminar: no hay duplicados por clave en la muestra.
+[2026-04-12 15:59:03] [INFO] [2.2] Criterio: Un registro por anuncio y fecha
+[2026-04-12 15:59:03] [INFO] [2.2] Duplicados - listings
+[2026-04-12 15:59:03] [INFO] [2.2] Clave: ['id']
+[2026-04-12 15:59:03] [INFO] [2.2] Duplicados: 0 / 12,000
+[2026-04-12 15:59:03] [INFO] [2.2] Decision: No eliminar: no hay duplicados por clave en la muestra.
+[2026-04-12 15:59:03] [INFO] [2.2] Criterio: Un registro por anuncio
+[2026-04-12 15:59:03] [INFO] [2.2] Duplicados - reviews
+[2026-04-12 15:59:03] [INFO] [2.2] Clave: ['id']
+[2026-04-12 15:59:03] [INFO] [2.2] Duplicados: 0 / 12,000
+[2026-04-12 15:59:03] [INFO] [2.2] Decision: No eliminar: no hay duplicados por clave en la muestra.
+[2026-04-12 15:59:03] [INFO] [2.2] Criterio: Una review por id
+[2026-04-12 15:59:03] [INFO] [2.2] Detectando outliers por metodo IQR
+[2026-04-12 15:59:03] [INFO] [2.2] Outliers por IQR:
+[2026-04-12 15:59:03] [INFO] [2.2] FIN | duracion=0.45s | Calidad de datos
+[2026-04-12 15:59:04] [INFO] [2.3] INICIO | Posibles transformaciones
+[2026-04-12 15:59:04] [INFO] [2.3] Desanidando amenities y evaluando host_*
+[2026-04-12 15:59:04] [INFO] [2.3] amenities desanidado OK
+[2026-04-12 15:59:04] [INFO] [2.3] host_* detectadas: 20 columnas
+[2026-04-12 15:59:04] [INFO] [2.3] Justificacion: separar host en dim_host evita redundancia por anuncio.
+[2026-04-12 15:59:04] [INFO] [2.3] Generando agregados mensuales y semanales de calendario
+[2026-04-12 15:59:04] [INFO] [2.3] Resumen mensual (calendar):
+[2026-04-12 15:59:04] [INFO] [2.3] Resumen semanal (calendar):
+[2026-04-12 15:59:04] [INFO] [2.3] Justificacion: agregar por mes/semana reduce granularidad para analitica de tendencia.
+[2026-04-12 15:59:04] [INFO] [2.3] Estandarizando fecha, moneda y texto categorico
+[2026-04-12 15:59:04] [INFO] [2.3] Estandarizaciones aplicadas: fecha, moneda (price_num), y texto categorico
+[2026-04-12 15:59:04] [INFO] [2.3] FIN | duracion=0.30s | Posibles transformaciones
+[2026-04-12 15:59:04] [INFO] [2.4] INICIO | Documentacion de hallazgos
+[2026-04-12 15:59:04] [INFO] [2.4] Consolidando hallazgos e implicancias de transformacion
+[2026-04-12 15:59:04] [INFO] [2.4] Matriz de correlacion:
+[2026-04-12 15:59:04] [INFO] [2.4] Hallazgos clave:
+[2026-04-12 15:59:04] [INFO] [2.4] Decisiones que impactan transformacion:
+[2026-04-12 15:59:04] [INFO] [2.4] FIN | duracion=0.02s | Documentacion de hallazgos
+[2026-04-12 15:59:04] [INFO] [GENERAL] FIN ejecucion notebook | duracion=1.78s
