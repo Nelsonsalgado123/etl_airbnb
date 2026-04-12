@@ -30,5 +30,5 @@ Para correr el proceso ETL, ejecuta los scripts en el siguiente orden:
 
 ## 👥 Integrantes del Grupo y Responsabilidades
 - **Nelson Livanier Salgado Tejada:** Arquitectura del repositorio, conexión a MongoDB y módulo de Extracción.
-- **[Nombre Compañero 1]:** Análisis Exploratorio de Datos (EDA) y redacción del Informe Final.
-- **[Nombre Compañero 2]:** Módulo de Transformación, limpieza de datos y Carga.
+- **Juan David:** Análisis Exploratorio de Datos (EDA) y redacción del Informe Final.
+- **Maria Camila:** Módulo de Transformación, limpieza de datos y Carga.
