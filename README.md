@@ -1,6 +1,5 @@
 # 🏙️ Proceso ETL - Airbnb Buenos Aires
 
-## 🎯 Descripción y Objetivo del Proyecto
 # 🏨 Proyecto ETL: Airbnb Buenos Aires
 
 Este proyecto automatiza el proceso de Extracción, Transformación y Carga (ETL) de datos correspondientes a los alojamientos de Airbnb en la ciudad de Buenos Aires. Utiliza Python para el procesamiento de datos y MongoDB como motor de almacenamiento inicial.
