@@ -35,9 +35,10 @@ Creación de la Base de Datos: Crea una base de datos llamada exactamente airbnb
 Importación de Colecciones: Crea 3 colecciones (Listings, Reviews, Calendar) e importa su archivo CSV correspondiente a cada una.
 (Nota: El archivo Calendar tiene un volumen superior a los 10 millones de registros, por lo que la importación puede tomar varios minutos).
 
-### 3. Creación del Entorno Virtual e Instalación de Dependencias
+### 2.2 Creación del Entorno Virtual e Instalación de Dependencias
 Abre tu terminal y ejecuta los siguientes comandos para no afectar tu sistema base:
 
+```bash
 # 1. Crear el entorno virtual
 python -m venv venv
 
@@ -46,6 +47,7 @@ venv\Scripts\activate
 
 # 3. Instalar las librerías necesarias
 pip install -r requirements.txt
+```
 
 ### 3. Ejecución del Pipeline ETL
 Con el entorno activado y MongoDB corriendo con los datos cargados, el proceso debe ejecutarse en el siguiente orden estricto para mantener la integridad de los datos:
