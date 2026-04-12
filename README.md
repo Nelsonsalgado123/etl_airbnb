@@ -40,8 +40,7 @@ ETL_AIRBNB/
     * Abre MongoDB Compass y conéctate al servidor local (`mongodb://localhost:27017/`).
     * Crea una base de datos llamada `airbnb_ba`.
     * Crea 3 colecciones (`Listings`, `Reviews`, `Calendar`) e importa el archivo `.csv` correspondiente generado en el paso anterior.
-    > ⚠️ **Nota:** La importación de la colección `Calendar` puede tomar varios minutos debido a que contiene más de 10 millones de registros.
-
+  
 ### 2.2 Creación del Entorno Virtual e Instalación de Dependencias
 Abre tu terminal y ejecuta los siguientes comandos para no afectar tu sistema base:
 
