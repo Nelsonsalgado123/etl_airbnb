@@ -56,31 +56,32 @@ pip install -r requirements.txt
 ```
 
 ### 2.3. Ejecución del Pipeline ETL
-Con el entorno activado y MongoDB corriendo con los datos cargados, el proceso debe ejecutarse en el siguiente orden estricto para mantener la integridad de los datos:
+Con el entorno activado y MongoDB corriendo con los datos cargados, el proceso completo se ejecuta con un solo comando:
 
+```bash
+python src/main.py
+```
+Este script orquesta automáticamente las 3 fases:
+
+Extracción
+Transformación
+Carga
 * **Fase 0: Análisis Exploratorio (Opcional)**
     Para revisar los hallazgos iniciales en el entorno interactivo:
     > `notebooks/exploracion_airbnb.ipynb`
 
 * **Fase 1: Extracción**
     Establece la conexión con MongoDB, consulta las colecciones y las convierte en DataFrames estructurados.
-    ```bash
-    python src/extraccion.py
-    ```
 
 * **Fase 2: Transformación**
     Recibe los datos crudos, ejecuta la limpieza, maneja valores nulos y normaliza los formatos.
-    ```bash
-    python src/transformacion.py
-    ```
+
 
 * **Fase 3: Carga**
     Consolida la información limpia y la exporta al destino final (base de datos SQLite y reporte en Excel).
-    ```bash
-    python src/carga.py
-    ```
 
-💡 Sistema de Monitoreo: Cada ejecución del código genera automáticamente un archivo de registro detallado en la carpeta logs/, donde se documentan conexiones exitosas, posibles errores y la cantidad de registros procesados.
+
+Sistema de Monitoreo: Cada ejecución del código genera automáticamente un archivo de registro detallado en la carpeta logs/, donde se documentan conexiones exitosas, posibles errores y la cantidad de registros procesados.
 
 ## 👥 Integrantes del Grupo y Responsabilidades
 - **Nelson Livanier Salgado Tejada:** Arquitectura del repositorio, conexión a MongoDB y módulo de Extracción.
