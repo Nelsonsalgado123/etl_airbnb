@@ -24,17 +24,23 @@ ETL_AIRBNB/
 ## 🛠️ Instrucciones de Instalación y Ejecución
 
 ### 2.1 Configuración de la Base de Datos Local
-Debido a restricciones de tamaño de alojamiento y buenas prácticas de versionado, los archivos CSV originales no se incluyen en este repositorio. Para ejecutar este proyecto localmente, es necesario replicar la base de datos siguiendo estos pasos:
 
-Directorio de Datos: Crea una carpeta llamada data/ en la raíz del proyecto y descarga los archivos listings.csv, reviews.csv y calendar.csv en su interior.
+1.  **Directorio de Datos:** Crea una carpeta llamada `data/` en la raíz del proyecto.
+2.  **Descarga de Archivos:** Descarga y guarda en la carpeta `data/` los archivos comprimidos originales:
+    * `listings.csv.gz`
+    * `calendar.csv.gz`
+    * `reviews.csv.gz`
+3.  **Descompresión Automatizada:** No intentes descomprimir los archivos desde el explorador de archivos. Ejecuta el script especializado para procesar estos volúmenes de datos:
+    ```bash
+    python src/descomprimir.py
+    ```
+    *Esto generará los archivos `.csv` descomprimidos dentro de la misma carpeta `data/` de forma eficiente.*
 
-Motor de Base de Datos: Abre MongoDB Compass y conéctate al servidor local (mongodb://localhost:27017/).
-
-Creación de la Base de Datos: Crea una base de datos llamada exactamente airbnb_ba.
-
-Importación de Colecciones: Crea 3 colecciones (Listings, Reviews, Calendar) e importa su archivo CSV correspondiente a cada una.
-(Nota: El archivo Calendar tiene un volumen superior a los 10 millones de registros, por lo que la importación puede tomar varios minutos).
-
+4.  **Configuración de MongoDB:**
+    * Abre MongoDB Compass y conéctate al servidor local (`mongodb://localhost:27017/`).
+    * Crea una base de datos llamada `airbnb_ba`.
+    * Crea 3 colecciones (`Listings`, `Reviews`, `Calendar`) e importa el archivo `.csv` correspondiente generado en el paso anterior.
+  
 ### 2.2 Creación del Entorno Virtual e Instalación de Dependencias
 Abre tu terminal y ejecuta los siguientes comandos para no afectar tu sistema base:
 
